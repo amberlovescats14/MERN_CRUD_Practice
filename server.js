@@ -15,7 +15,7 @@ app.get('/', (req, res)=> {
 })
 
 
-app.use('/todos', require('./routes/todos'))
+app.use('/comments', require('./routes/comments.js'))
 
 
 
