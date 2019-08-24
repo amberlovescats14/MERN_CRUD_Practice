@@ -42,4 +42,15 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+router.delete('/:id', async (req, res) => {
+  try {
+    const comment = await Comments.findById(req.params.id)
+    
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).json({msg: `SERVER ERROR`})
+  }
+})
+
+
 module.exports = router
