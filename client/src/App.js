@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { Fragment} from 'react';
+import {BrowserRouter } from 'react-router-dom'
+import Nav from './components/nav/Nav'
+import Router from './Router'
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
+    <BrowserRouter>
+    <Fragment>
+      <Nav/>
+      <Router/>
+    </Fragment>
+    </BrowserRouter>
   );
 }
 
