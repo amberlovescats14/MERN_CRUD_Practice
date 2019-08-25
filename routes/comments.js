@@ -45,6 +45,10 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const comment = await Comments.findById(req.params.id)
+    if(!comment) res.status(404).json({msg: `Comment Not Found`})
+
+    await comment.remove()
+    res.json({msg: `Post Removed`})
     
   } catch (error) {
     console.error(error.message)
