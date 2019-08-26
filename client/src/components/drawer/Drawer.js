@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
 }));
 
-export default function Landing() {
+export default function ClippedDrawer() {
   const classes = useStyles();
 
   return (
@@ -45,7 +45,7 @@ export default function Landing() {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" noWrap>
-            Amber Jones
+            Clipped drawer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -58,7 +58,7 @@ export default function Landing() {
       >
         <div className={classes.toolbar} />
         <List>
-          {['Comments', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
