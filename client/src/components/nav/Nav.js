@@ -1,40 +1,75 @@
-import React from 'react'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-const Nav = () => {
-    return(
+import React from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, ClickAwayListener, Paper } from '@material-ui/core'
+import {Link} from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import { grey } from '@material-ui/core/colors';
+import MenuIcon from '@material-ui/icons/Menu';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    position: 'relative',
+    color: 'white'
+  },
+  paper: {
+    position: 'absolute',
+    top: 36,
+    right: 0,
+    left: 0,
+  },
+  button: {
+    float: 'right',
+    color: 'white'
+  },
+  links: {
+      color: 'black',
+      textDecoration: 'none'
+  }
+}));
+
+export default function Nav() {
+  const [open, setOpen] = React.useState(false);
+  const classes = useStyles();
+
+  const handleClick = () => {
+    setOpen(prev => !prev);
+  };
+
+  const handleClickAway = () => {
+    setOpen(false);
+  };
+
+  const fake = <div>amber</div>;
+
+  return (
+    <AppBar className={classes.root}>
+    <Toolbar>
+      <ClickAwayListener onClickAway={handleClickAway} >
         <div>
-        <AppBar position="static">
-            <Toolbar>
-                <Typography variant="title" color="inherit">
-                React & Material-UI Sample Application
-                </Typography>
-            </Toolbar>
-        </AppBar>
+          <Button onClick={handleClick} className={classes.button}>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <MenuIcon/>
+          </IconButton>
+          </Button>
+          {open ? (
+            <Paper >
+              <Link to="/" className={classes.links} >
+              Landing
+              </Link> <br/>
+              <Link to="/comments" className={classes.links}> 
+              Comments DB
+              </Link>
+              {fake}
+              {fake}
+              {fake}
+            </Paper>
+          ) : null}
         </div>
-    )
+      </ClickAwayListener>
+      <Typography >Amber Jones</Typography>
+      </Toolbar>
+    </AppBar>
+  );
 }
-export default Nav;
-// import React from 'react'
-// import { Link } from 'react-router-dom'
+const linkStyle = {
 
-// const nav = () => {
-//   return (
-//     <div style={{border: '2px solid red'}}>
-//       <h1>NAV</h1>
-//       <ul style={style}>
-//         <li><Link to="/">Landing Page</Link></li>
-//         <li><Link to="/comments">Leave A Comment!</Link></li>
-//         <li><Link to="/contact">Contact Me!</Link></li>
-//       </ul>
-//     </div>
-//   )
-// }
-
-// const style= {
-//   display: 'flex',
-//   justifyContent: 'space-evenly'
-// }
-
-// export default nav
+}

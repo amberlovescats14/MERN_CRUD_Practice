@@ -2,6 +2,22 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Spinner from '../spin/Spinner'
 import OneComment from './OneComment'
+import { Grid, Typography, Paper } from '@material-ui/core'
+
+const styles = {
+  list: {
+    margin: ' 10px 0 10px 0'
+  },
+  paper: {
+    height: '600px'
+  },
+  header: {
+    color: '#FE6B8B'
+  },
+  subHeader: {
+    color: '#e4e4e4'
+  }
+}
 
 const Comments = (props) => {
   const {test, getComments} = props
@@ -11,12 +27,23 @@ const Comments = (props) => {
   }, [getComments])
   return (
     loading ? <Spinner/> :
-    <div>
-      {test}
-      {comments.map((c, i)=> (
-        <OneComment comments={c} key={i}/>
+    <Grid container>
+    <Grid item sm>
+    <Paper style={styles.paper}>
+    <Typography variant="h4" style={styles.header}>Leave A Comment!</Typography>
+    <Typography variant="subtitle2" style={styles.subHeader}>
+    *This app does not require authorization, please only edit your own comment
+    </Typography>
+    </Paper>
+    </Grid>
+    <Grid item sm>
+    <Paper style={styles.paper}>
+    {comments.map((c, i)=> (
+        <OneComment style={styles.list}comments={c} key={i}/>
       ))}
-    </div>
+      </Paper>
+    </Grid>
+    </Grid>
   )
 }
 Comments.prototype = {
