@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import {List, ListItem, ListItemText} from '@material-ui/core'
+import {List, ListItem, ListItemText, Fab} from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import ClearIcon from '@material-ui/icons/Clear';
 
 
 // We can inject some CSS into the DOM.
@@ -20,18 +21,26 @@ const styles = {
 };
 
 
-
 const OneComment = (props) => {
-  const {comments} = props
+  const {comments, deleteComment} = props
   const { classes, children, className, ...other } = props;  console.log(props)
   return (
     <List className={clsx(classes.root, className)} {...other}>
     
       <ListItem>
-      <ListItemText primary={comments.text} />      
-      <Button variant="contained" color="primary"> {'  '}
+      <ListItemText primary={comments.text}
+      secondary={`By: ${comments.name}`} />     
+       
+
+
+      </ListItem>
+      <ListItem>
+      <Button variant="contained" color="primary" size="small"> {'  '}
       Edit
     </Button>
+      <Fab size="small" color="secondary" aria-label="Add" className={classes.margin} onClick={() => deleteComment(comments._id)}> 
+          <ClearIcon />
+        </Fab>
       </ListItem>
 
     </List>

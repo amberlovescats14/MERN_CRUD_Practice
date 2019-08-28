@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Spinner from '../spin/Spinner'
-import OneComment from './OneComment'
+import OneCommentContainer from '../../containers/OneCommentContainer'
+import CommentFormContainer from '../../containers/CommentFormContainer'
 import { Grid, Typography, Paper } from '@material-ui/core'
 
 const styles = {
@@ -9,7 +10,8 @@ const styles = {
     margin: ' 10px 0 10px 0'
   },
   paper: {
-    height: '600px'
+    height: '600px',
+    overflowY: 'scroll'
   },
   header: {
     color: '#FE6B8B'
@@ -34,12 +36,13 @@ const Comments = (props) => {
     <Typography variant="subtitle2" style={styles.subHeader}>
     *This app does not require authorization, please only edit your own comment
     </Typography>
+    <CommentFormContainer/>
     </Paper>
     </Grid>
     <Grid item sm>
     <Paper style={styles.paper}>
     {comments.map((c, i)=> (
-        <OneComment style={styles.list}comments={c} key={i}/>
+        <OneCommentContainer style={styles.list}comments={c} key={i}/>
       ))}
       </Paper>
     </Grid>

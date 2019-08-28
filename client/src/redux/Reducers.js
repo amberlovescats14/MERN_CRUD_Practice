@@ -13,16 +13,32 @@ const commentsInitialState = {
 }
 
 export const getComments = (state = commentsInitialState, action) => {
-  switch(action.type){
+  const {payload, type} = action
+  switch(type){
     case `GET_COMMENTS`: 
     return {
       ...state,
-      comments: action.payload,
+      comments: payload,
+      loading: false
+    }
+    case `ADD_COMMENT`:
+    return {
+      ...state,
+      comments: payload.oldPosts.concat(payload.newPosts),
+      loading: false
+    }
+    case `DELETE_COMMENT`:
+    return {
+      ...state,
+      comments: payload.oldComments.filter(c => c.id !== payload.id),
       loading: false
     }
     default: return state
   }
 }
+
+
+
 
 export default combineReducers({
   test: testing,

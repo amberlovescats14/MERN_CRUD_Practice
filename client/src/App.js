@@ -2,6 +2,7 @@ import React, { Fragment} from 'react';
 import {BrowserRouter } from 'react-router-dom'
 import Nav from './components/nav/Nav'
 import Router from './Router'
+import Footer from './components/footer/Footer'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <Fragment>
       <Nav/>
       <Router/>
+      <Footer/>
     </Fragment>
     </BrowserRouter>
   );

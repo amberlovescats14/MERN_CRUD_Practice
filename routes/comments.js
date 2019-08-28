@@ -15,6 +15,7 @@ router.get('/', async (req, res)=> {
 router.post('/', async (req, res)=> {
   try {
     const newComment = new Comments({
+      name: req.body.name,
       text: req.body.text
     })
     const save = await newComment.save()
