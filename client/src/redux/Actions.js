@@ -39,8 +39,37 @@ export const addComment = (values) => async(dispatch, getState) => {
   }
 }
 
+//! EDIT COMMENT 
+export const editComment = (id, values) => async(dispatch, getState) => {
+ const { commentsObject } = getState()
+ 
+  try {
+    let updatedComment = {
+      
+      name: values.name,
+      text: values.text
+    }
+    const res = await axios.put(`/comments/${id}`, updatedComment)
+    const res2 = await axios.get('/comments')
+    
+    dispatch({
+      type: `UPDATE_COMMENT`,
+      payload: {
+        id,
+        updatedComments: res2.data
+      }
+    })
+
+    
+  } catch (error) {
+    console.error(error.message)
+    console.log(`Edit Error`)
+  }
+}
+
 //!DELTE COMMENT
 export const deleteComment = id => async(dispatch, getState) => {
+  console.log(`id: `, id)
   try {
     await axios.delete(`/comments/${id}`)
     const { commentsObject } = getState()

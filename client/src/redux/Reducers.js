@@ -27,10 +27,16 @@ export const getComments = (state = commentsInitialState, action) => {
       comments: payload.oldPosts.concat(payload.newPosts),
       loading: false
     }
+    case `UPDATE_COMMENT`: 
+    return {
+      ...state,
+      comments: payload.updatedComments,
+      loading: false
+    }
     case `DELETE_COMMENT`:
     return {
       ...state,
-      comments: payload.oldComments.filter(c => c.id !== payload.id),
+      comments: payload.oldComments.filter(c => c._id !== payload.id),
       loading: false
     }
     default: return state
