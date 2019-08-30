@@ -3,6 +3,8 @@ import { Typography, Grid, List, ListItem } from '@material-ui/core'
 import './css/LandingAbout.css'
 import SecurityIcon from '@material-ui/icons/Security';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import PeopleIcon from '@material-ui/icons/People';
 
 const styles = {
   wrapper: {
@@ -15,9 +17,7 @@ const styles = {
   },
   gridItems: {
     display: 'flex',
-    // flexDirection: 'column',
     justifyContent: 'center',
-    border: '2px solid green',
     textAlign: 'center'
 
   },
@@ -27,6 +27,9 @@ const styles = {
   },
   center: {
     margin: 'auto'
+  },
+  type: {
+    textAlign: 'justify'
   }
 }
 
@@ -48,7 +51,7 @@ const LandingAbout = () => {
         <Typography variant="h4" style={styles.center}>Integrity</Typography>
         </ListItem>
         <ListItem>
-          <Typography variant="subtitle2">
+          <Typography variant="subtitle2" >
            I have integrity in my work and hold myself to an industry-standard that includes producing clean, consistent and maintainable code
           </Typography>
         </ListItem>
@@ -68,7 +71,7 @@ const LandingAbout = () => {
         </ListItem>
         <ListItem>
           <Typography variant="subtitle2">
-           I thrive in an ecology where I can use my creative engineering skills to solve complex problems, also in a culture that values collaboration, diversity and community involvement.
+          Pursuing excellence with innovation, I have a high degree of technical competency as well as engaging presentation capabilities
           </Typography>
         </ListItem>
       </List>
@@ -78,7 +81,7 @@ const LandingAbout = () => {
         <ListItem>
         <div class="shape-outer octagon">
 	    <div class="shape-inner octagon">
-      <HourglassEmptyIcon style={styles.icon} /> 
+      <WhatshotIcon style={styles.icon} /> 
       </div>
       </div> 
         </ListItem>
@@ -87,15 +90,31 @@ const LandingAbout = () => {
         </ListItem>
         <ListItem>
           <Typography variant="subtitle2">
-           I thrive in an ecology where I can use my creative engineering skills to solve complex problems, also in a culture that values collaboration, diversity and community involvement.
+          Continual thirst for professional growth helps me
+          thrive in an ecology where I can use my creative engineering skills to solve complex problems. 
           </Typography>
         </ListItem>
       </List>
       </Grid>
-      <Grid item sm style={styles.gridItems}>
-      <div class="shape-outer octagon">
-	    <div class="shape-inner octagon"></div>
+      <Grid item sm style={styles.gridItems}> 
+      <List>
+        <ListItem>
+        <div class="shape-outer octagon">
+	    <div class="shape-inner octagon">
+      <PeopleIcon style={styles.icon} /> 
       </div>
+      </div> 
+        </ListItem>
+        <ListItem>
+        <Typography variant="h4" style={styles.center}>Empowerment</Typography>
+        </ListItem>
+        <ListItem>
+          <Typography variant="subtitle2">
+          Fostering diversity increases trust. Together we can induce new paths for future generations and harness an inclusive enviroment
+
+          </Typography>
+        </ListItem>
+      </List>
       </Grid>
       </Grid>
     </div>
