@@ -1,9 +1,12 @@
 import React from 'react'
+import LandingHeader from './LandingHeader'
+import LandingAbout from './LandingAbout'
 
 const Landing = () => {
   return (
     <div>
-      <h1>landing</h1>
+      <LandingHeader/>
+      <LandingAbout/>
     </div>
   )
 }

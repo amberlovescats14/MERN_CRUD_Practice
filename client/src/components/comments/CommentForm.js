@@ -38,8 +38,8 @@ export default function TextFields(props) {
   const { addComment } = props
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    name: 'John Doe',
-    text: 'Great Customization!'
+    name: '',
+    text: ''
   });
 
   const handleChangeName = name => event => {
