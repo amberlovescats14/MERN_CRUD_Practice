@@ -10,7 +10,7 @@ const styles = {
     margin: ' 10px 0 10px 0'
   },
   paper: {
-    height: '600px',
+    height: '100%',
     overflowY: 'scroll'
   },
   header: {
@@ -29,7 +29,7 @@ const Comments = (props) => {
   }, [getComments])
   return (
     loading ? <Spinner/> :
-    <Grid container>
+    <Grid container style={{height: '90vh'}}>
     <Grid item sm>
     <Paper style={styles.paper}>
     <Typography variant="h4" style={styles.header}>Leave A Comment!</Typography>

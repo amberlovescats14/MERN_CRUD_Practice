@@ -3,5 +3,6 @@ export default {
     comments: [],
     loading: true
   },
-  test: "TESTING THE STATE"
+  test: "TESTING THE STATE",
+
 }

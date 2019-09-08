@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Grid, List, ListItem } from '@material-ui/core'
+import { Typography, Grid, List, ListItem} from '@material-ui/core'
 import './css/LandingAbout.css'
 import SecurityIcon from '@material-ui/icons/Security';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
