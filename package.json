@@ -1,14 +1,15 @@
 {
   "name": "MERN_CRUD_Practice",
   "version": "1.0.0",
-  "description": "I need to keep practicing my skills so I am going to build a full stack app in React.",
+  "description": "Portfolio",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
