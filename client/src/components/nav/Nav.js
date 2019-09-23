@@ -65,7 +65,7 @@ export default function Nav() {
                 <ListItemIcon>
                 <SendIcon />
                 <Link to="/" className={classes.links} >
-              {" "}Landing
+              {" "}Home
               </Link>
               </ListItemIcon>
               </ListItem>
@@ -77,17 +77,16 @@ export default function Nav() {
               </Link>
               </ListItemIcon>
               </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                <SendIcon />
+                <Link to='/UI-LandingPage' className={classes.links}> 
+              UI-design
+              </Link>
+              </ListItemIcon>
+              </ListItem>
               </List>
-              {/* <Link to="/" className={classes.links} >
-              Landing
-              </Link>
-              <br/>
-              <Link to="/comments" className={classes.links}> 
-              Comments DB
-              </Link>
-              {fake}
-              {fake}
-              {fake} */}
+
             </Paper>
           ) : null}
         </div>
@@ -96,7 +95,4 @@ export default function Nav() {
       </Toolbar>
     </AppBar>
   );
-}
-const linkStyle = {
-
 }
