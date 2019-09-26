@@ -11,8 +11,10 @@ const styles = {
   
   },
   picture: {
-    width: '17vw',
-    height: '30vh',
+    width: 'auto',
+    height: 'auto',
+    maxHeight: '250px',
+    maxWidth: '250px',
     clipPath: "polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)"
   },
   span: {

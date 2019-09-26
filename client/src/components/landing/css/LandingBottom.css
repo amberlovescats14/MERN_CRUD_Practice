@@ -1,0 +1,84 @@
+
+#gridComponent {
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  box-sizing: border-box;
+  background: #0fb784;
+  padding: 10%;
+  border-radius: 10%
+}
+#grid-wrapper {
+  background: black;
+  color: white;
+  height: 60vh;
+  width: 40vw;
+  border: 4px solid black;
+  display: grid;
+  grid-template: repeat(9, 1fr) / repeat(4, 1fr);
+  grid-gap: 1em;
+}
+.gridItem1 {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gridItem2 {
+  flex: 2
+}
+#gridHeader {
+  background: #444444;
+  color: #efefef;
+}
+#one {
+  background: darkblue;
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+#two {
+  background: red;
+  grid-area: 1 / 2 / span 2 / -1;
+}
+#three {
+  background: yellow;
+  color: black;
+  grid-area: 2 /1 / span 3 / span 1
+}
+#four {
+  background: white;
+  color: black;
+  grid-area: 3 / 2 / span 5 / span 1;
+}
+#five {
+  background: white;
+  color: black;
+  grid-area: 3 / 3 / span 2 / -1;
+}
+#six {
+  background: white;
+  color: black;
+  grid-area: 5 / 1 / span 3 / span 1;
+}
+#seven {
+  background: yellow;
+  color: black;
+  grid-area: 5 / 3 / span 3 / -1
+}
+#eight {
+  background: red;
+  grid-area: 8 / 1 / -1 / span 1;
+}
+#nine {
+  background: darkblue;
+  grid-area: 8 / 2/ -1 / -1;
+}
+@media(max-width: 1000px){
+  #grid-wrapper {
+    width: 60vw
+  }
+  .gridItem1 {
+    line-height: 3;
+
+  }
+}

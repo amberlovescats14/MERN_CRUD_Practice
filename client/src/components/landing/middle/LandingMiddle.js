@@ -14,7 +14,6 @@ const LandingMiddle = () => {
     <Right/>
     </Grid>
 
-      
     </Grid>
   )
 }
