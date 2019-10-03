@@ -10,8 +10,8 @@ const Landing = () => {
       <LandingHeader/>
       <LandingAbout/>
       <LandingMiddle/>
-      <hr/>
-      <LandingBottom/>
+      {/* <hr/> */}
+      {/* <LandingBottom/> */}
 
     </div>
   )
