@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import { CssBaseline, Table, TableBody, TableCell, TableHead, TableRow, Paper, Divider, Typography } from '@material-ui/core'
+import './css/right.css'
 
 
 
@@ -38,27 +39,30 @@ const rows = [
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '80%',
+    width: '100%',
     margin: 'auto',
-    // marginTop: theme.spacing(5),
+    marginTop: theme.spacing(5),
     overflowX: 'auto',
+    textAlign: 'center'
   },
   skills: {
-    padding: '20px',
+    padding: '0',
+    margin: '0',
     color: '#3f51b5',
     fontWeight: '500',
     textDecoration: 'underline'
   },
+
 }));
 
 export default function Right() {
   const classes = useStyles();
 
   return (
-    <div style={{textAlign: 'center'}}>
+    <div className={classes.root}  id="tableComponent">
     <Typography variant="h3" className={classes.skills}>Abilities</Typography>
-    <Paper className={classes.root}>
-      <Table className={classes.table}>
+    <Paper >
+      <Table style={{width: '70%', float: 'left'}}>
 
         <TableHead>
           <TableRow>

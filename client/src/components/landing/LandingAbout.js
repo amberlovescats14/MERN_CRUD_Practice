@@ -10,20 +10,11 @@ const styles = {
   wrapper: {
     textAlign: 'center'
   },
-  aboutMe: {
-    fontWeight: '500',
-    textDecoration: 'underline',
-    padding: '40px'
-  },
   gridItems: {
     display: 'flex',
     justifyContent: 'center',
     textAlign: 'center'
 
-  },
-  icon: {
-    color: 'white',
-    fontSize: '11vh'
   },
   center: {
     margin: 'auto'
@@ -36,14 +27,14 @@ const styles = {
 const LandingAbout = () => {
   return (
     <div style={styles.wrapper}>
-      <Typography variant="h2" style={styles.aboutMe}>About Me</Typography>
+      <Typography className="aboutMe" >About Me</Typography>
       <Grid container>
       <Grid item sm style={styles.gridItems}> 
       <List>
         <ListItem>
         <div class="shape-outer octagon">
 	    <div class="shape-inner octagon">
-      <SecurityIcon style={styles.icon} /> 
+      <SecurityIcon className="icon" /> 
       </div>
       </div> 
         </ListItem>
@@ -62,7 +53,7 @@ const LandingAbout = () => {
         <ListItem>
         <div class="shape-outer octagon">
 	    <div class="shape-inner octagon">
-      <HourglassEmptyIcon style={styles.icon} /> 
+      <HourglassEmptyIcon className="icon" /> 
       </div>
       </div> 
         </ListItem>
@@ -81,7 +72,7 @@ const LandingAbout = () => {
         <ListItem>
         <div class="shape-outer octagon">
 	    <div class="shape-inner octagon">
-      <WhatshotIcon style={styles.icon} /> 
+      <WhatshotIcon className="icon" /> 
       </div>
       </div> 
         </ListItem>
@@ -101,7 +92,7 @@ const LandingAbout = () => {
         <ListItem>
         <div class="shape-outer octagon">
 	    <div class="shape-inner octagon">
-      <PeopleIcon style={styles.icon} /> 
+      <PeopleIcon className="icon" /> 
       </div>
       </div> 
         </ListItem>

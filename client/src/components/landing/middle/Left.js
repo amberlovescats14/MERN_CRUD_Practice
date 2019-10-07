@@ -31,7 +31,7 @@ const Left = () => {
           style={styles.picture} alt="pic"/>
           <Typography variant="h3">Who is she?</Typography>
           <Typography variant="subtitle1">
-          I'm the Full-Stack Developer <br/> in 
+          I'm a Full-Stack Developer <br/> in 
           <span style={styles.span}> San Antonio, TX. </span> <br/>
           I have serious passion for algorithms, teamwork and creating intuitive, dynamic user experiences. <br/>
           <span style={styles.span}>Let's make something special.</span>
