@@ -65,6 +65,9 @@ ul {
     list-style: square outside none;
 
 }
+.wrapUL:nth-of-type(even){
+    display: block
+}
 #bottom {
     text-align: center;
 }
@@ -108,6 +111,7 @@ th {
     height: 30vh;
     width: 100%;
     text-align: left;
+    display: block;
 }
 #formHead {
     font-family: 'Merienda One', cursive;
@@ -169,5 +173,11 @@ input {
         margin-left: 15px;
         width: calc(50% - 15px);
 
+    }
+    .wrapUL:nth-of-type(even){
+        display: none
+    }
+    #form {
+        display: none
     }
 }
