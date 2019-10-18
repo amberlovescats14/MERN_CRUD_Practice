@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Button, IconButton, ClickAwayListener, Pap
 import SendIcon from '@material-ui/icons/Send';
 import {Link} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
-import { grey } from '@material-ui/core/colors';
+import CloudQueueIcon from '@material-ui/icons/CloudQueue'
 import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +24,10 @@ const useStyles = makeStyles(theme => ({
   links: {
       color: 'black',
       textDecoration: 'none'
+  },
+  icons: {
+    float: 'right',
+    marginLeft: '10px'
   }
 }));
 
@@ -46,7 +50,6 @@ export default function Nav() {
     setOpen(false);
   };
 
-  const fake = <div>amber</div>;
 
   return (
     <AppBar className={classes.root}>
@@ -61,7 +64,7 @@ export default function Nav() {
           {open ? (
             <Paper >
               <List>
-              <ListItem button>
+              <ListItem button onClick={handleClickAway}>
                 <ListItemIcon>
                 <SendIcon />
                 <Link to="/" className={classes.links} >
@@ -69,7 +72,7 @@ export default function Nav() {
               </Link>
               </ListItemIcon>
               </ListItem>
-              <ListItem button>
+              <ListItem button onClick={handleClickAway}>
                 <ListItemIcon>
                 <SendIcon />
                 <Link to="/comments" className={classes.links}> 
@@ -77,10 +80,11 @@ export default function Nav() {
               </Link>
               </ListItemIcon>
               </ListItem>
-              <ListItem button>
+              <ListItem button onClick={handleClickAway}>
                 <ListItemIcon>
                 <SendIcon />
-                <Link to='/UI-LandingPage' className={classes.links}> 
+                <Link to='/UI-LandingPage' className={classes.links}
+                > 
               UI-design
               </Link>
               </ListItemIcon>
@@ -91,7 +95,9 @@ export default function Nav() {
           ) : null}
         </div>
       </ClickAwayListener>
-      <Typography >Amber Jones</Typography>
+      <Link to='/' style={{marginLeft: 'auto'}}>
+      <Typography className={classes.icons} >Amber Jones</Typography> 
+      <CloudQueueIcon className={classes.icons}/>      </Link>
       </Toolbar>
     </AppBar>
   );
