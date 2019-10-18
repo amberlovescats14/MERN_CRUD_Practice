@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     margin: 'auto',
     marginTop: theme.spacing(5),
+    padding: '30px',
     overflowX: 'auto',
     textAlign: 'center'
   },
@@ -49,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     padding: '0',
     margin: '0',
     color: '#3f51b5',
-    fontWeight: '500',
+    fontWeight: '300',
     textDecoration: 'underline'
   },
 
@@ -62,7 +63,7 @@ export default function Right() {
     <div className={classes.root}  id="tableComponent">
     <Typography variant="h3" className={classes.skills}>Abilities</Typography>
     <Paper >
-      <Table style={{width: '70%', float: 'left'}}>
+      <Table >
 
         <TableHead>
           <TableRow>
