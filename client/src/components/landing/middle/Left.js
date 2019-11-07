@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react'
-import {CssBaseline, Paper, Typography } from '@material-ui/core'
+import React from 'react'
+import {CssBaseline,Typography } from '@material-ui/core'
 
 const styles = {
   root: {

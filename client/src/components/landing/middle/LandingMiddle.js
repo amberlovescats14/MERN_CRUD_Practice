@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import { Grid } from '@material-ui/core'
 import Left from './Left'
 import Right from './Right'

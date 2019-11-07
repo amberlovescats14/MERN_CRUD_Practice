@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import './css/LandingBottom.css'
-import {Typography, Paper} from '@material-ui/core'
+import {Typography} from '@material-ui/core'
 
 
 

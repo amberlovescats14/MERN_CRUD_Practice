@@ -32,8 +32,8 @@ const LandingAbout = () => {
       <Grid item sm style={styles.gridItems}> 
       <List>
         <ListItem>
-        <div class="shape-outer octagon">
-	    <div class="shape-inner octagon">
+        <div className="shape-outer octagon">
+	    <div className="shape-inner octagon">
       <SecurityIcon className="icon" /> 
       </div>
       </div> 
@@ -51,8 +51,8 @@ const LandingAbout = () => {
       <Grid item sm style={styles.gridItems}> 
       <List>
         <ListItem>
-        <div class="shape-outer octagon">
-	    <div class="shape-inner octagon">
+        <div className="shape-outer octagon">
+	    <div className="shape-inner octagon">
       <HourglassEmptyIcon className="icon" /> 
       </div>
       </div> 
@@ -70,8 +70,8 @@ const LandingAbout = () => {
       <Grid item sm style={styles.gridItems}> 
       <List>
         <ListItem>
-        <div class="shape-outer octagon">
-	    <div class="shape-inner octagon">
+        <div className="shape-outer octagon">
+	    <div className="shape-inner octagon">
       <WhatshotIcon className="icon" /> 
       </div>
       </div> 
@@ -90,8 +90,8 @@ const LandingAbout = () => {
       <Grid item sm style={styles.gridItems}> 
       <List>
         <ListItem>
-        <div class="shape-outer octagon">
-	    <div class="shape-inner octagon">
+        <div className="shape-outer octagon">
+	    <div className="shape-inner octagon">
       <PeopleIcon className="icon" /> 
       </div>
       </div> 

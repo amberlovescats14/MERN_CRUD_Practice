@@ -22,7 +22,7 @@ const styles = {
 }
 
 const Comments = (props) => {
-  const {test, getComments} = props
+  const { getComments} = props
   const { comments, loading } = props.commentsObject
   useEffect(()=> {
    getComments()

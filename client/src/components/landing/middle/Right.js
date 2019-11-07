@@ -1,6 +1,6 @@
-import React, {Fragment} from 'react'
+import React  from 'react'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
-import { CssBaseline, Table, TableBody, TableCell, TableHead, TableRow, Paper, Divider, Typography } from '@material-ui/core'
+import { Table, TableBody, TableCell, TableHead, TableRow, Paper, Typography } from '@material-ui/core'
 import './css/right.css'
 
 

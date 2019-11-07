@@ -1,19 +1,24 @@
-import React, { Fragment, useState} from 'react';
-import {BrowserRouter } from 'react-router-dom'
+import React, { Fragment} from 'react';
+import { BrowserRouter } from 'react-router-dom'
+import { Switch, Route} from 'react-router-dom'
 import Nav from './components/nav/Nav'
-import Router from './Router'
-import Footer from './components/footer/Footer'
-
+import Landing from './components/landing/Landing'
+import Comments from './containers/CommentsContainer'
+import Contact from './components/contact/Contact'
+import Weather from './containers/WeatherContainer'
 
 function App() {
 
   return (
     <BrowserRouter>
-    <Fragment>
-      <Nav/>
-      <Router/>
-      <Footer/>
-    </Fragment>
+      <Nav>
+      <Switch>
+      <Route exact strict path='/' component={Landing}/>
+      <Route exact strict path='/comments' component={Comments}/>
+      <Route exact strict path='/contact' component={Contact}/>
+      <Route exact strict path='/weather' component={Weather}/>
+    </Switch>        
+      </Nav>
     </BrowserRouter>
   );
 }

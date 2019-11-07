@@ -44,11 +44,25 @@ export const getComments = (state = commentsInitialState, action) => {
     default: return state
   }
 }
-
-
+const weatherInitialState = {
+  forecast: {},
+  loading: true
+}
+export const getWeather = (state = weatherInitialState, action ) => {
+  switch(action.type){
+    case `GET_WEATHER`:
+    return {
+      ...state,
+      forecast: action.payload,
+      loading: false
+    }
+    default: return state
+  }
+}
 
 
 export default combineReducers({
   test: testing,
-  commentsObject: getComments
+  commentsObject: getComments,
+  weather: getWeather
 })
