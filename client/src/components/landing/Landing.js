@@ -6,7 +6,7 @@ import LandingBottom from './LandingBottom'
 
 const Landing = () => {
   return (
-    <div style={{width: '90vw'}}>
+    <div style={{width: '100vw'}}>
       <LandingHeader/>
       <LandingAbout/>
       <LandingMiddle/>

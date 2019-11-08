@@ -65,7 +65,7 @@ export default function WeatherNav() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <AppBar position="static">
         <Toolbar>
           <IconButton
