@@ -5,7 +5,7 @@ export default {
   },
   test: "TESTING THE STATE",
   weather: {
-    forecast: {},
+    forecast: [],
     loading: true
   }
 }

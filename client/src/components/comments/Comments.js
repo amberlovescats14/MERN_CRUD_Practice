@@ -29,7 +29,7 @@ const Comments = (props) => {
   }, [getComments])
   return (
     loading ? <Spinner/> :
-    <Grid container style={{height: '90vh'}}>
+    <Grid container style={{height: '90vh', width: '90vw'}}>
     <Grid item sm>
     <Paper style={styles.paper}>
     <Typography variant="h4" style={styles.header}>Leave A Comment!</Typography>

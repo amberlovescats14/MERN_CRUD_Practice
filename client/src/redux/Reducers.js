@@ -53,7 +53,7 @@ export const getWeather = (state = weatherInitialState, action ) => {
     case `GET_WEATHER`:
     return {
       ...state,
-      forecast: action.payload,
+      forecast: action.payload.daily.data.filter((f,i)=> i < 3),
       loading: false
     }
     default: return state
