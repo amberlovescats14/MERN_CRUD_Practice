@@ -7,21 +7,25 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DehazeIcon from '@material-ui/icons/Dehaze';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link } from 'react-router-dom'
-import blue from '@material-ui/core/colors/blue'
+import indigo from '@material-ui/core/colors/indigo'
 
-const primary = blue[900]
+const primary = indigo[900]
 
 const useStyles = makeStyles({
-  list: {
-    width: 250,
+  root: {
+    background: primary,
+    color: 'white'
   },
+  list: {
+    width: 250
+    },
   sideList: {
     width: 'auto',
-    background: primary
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
 
   },
 });
@@ -85,10 +89,11 @@ export default function TemporaryDrawer(props) {
 
     </div>
   );
-console.log(`CHILDREN: `,children)
   return (
-    <div>
-      <Button onClick={toggleDrawer('left', true)}>Left</Button>
+    <div >
+      <Button onClick={toggleDrawer('left', true)}>
+      <DehazeIcon/>
+      </Button>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>
