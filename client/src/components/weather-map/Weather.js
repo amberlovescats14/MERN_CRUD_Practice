@@ -1,5 +1,36 @@
 import React, {useEffect} from 'react'
+import Map from './Map'
 import './css/weatherMap.css'
+
+
+
+const correctDate = (num) => {
+    let time = new Date(num * 1000).toString()
+    let split = time.split(' ')
+    return`${split[1]} ${split[2]}`
+}
+const prefixDay = (num, num2) => {
+    let time = new Date(num2 * 1000).toString()
+    let split = time.split(' ')
+    switch (num) {
+        case 0: return `Today`;
+        case 1: 
+        case 2:    
+            return split[0];
+        default: return ''    
+    }
+}
+
+const chooseIcon = (type) => {
+    switch (type) {
+        case 'rain': return `./css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg`;
+        case 'fog':
+        case "partly-cloudy-day":
+            return `./css/amcharts_weather_icons_1.0.0/animated/cloudy.svg`;
+        case 'clear-day': return `./amcharts_weather_icons_1.0.0/animated/day.svg`
+        default: return ''
+    }
+}
 
 const Weather = (props) => {
   const { getWeather, weather} = props
@@ -13,13 +44,12 @@ const Weather = (props) => {
     <nav class="nav-extended  indigo darken-4">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo center">AMBER_JONES</a>
-    
     </div>
       <div class="nav-content">
           <form>
               <div class="input-field">
                   <input id="city-search" type="search" class="center-align"/>
-                  <label class="label-icon" for="city-search"><i class="material-icons"
+                  <label class="label-icon" htmlFor="city-search"><i class="material-icons"
                   id="searchButton">search</i></label>
                   <i class="material-icons">close</i>
               </div>
@@ -34,20 +64,39 @@ const Weather = (props) => {
 </div>
 {/* end banner */}
 <div class="row" id="main">
-{weather.loadinig ? (
+{loading ? (
   <div class="col s12 " id="beforeLoading">
   <img src="https://icon-library.net/images/custom-loading-icon/custom-loading-icon-9.jpg" alt="loading"
        id="loading-image"/>
 </div>
-):(    <div class="col s12" id="afterLoading">
-<div id="overlay"></div>
-<div id="sky-card-wrapper">
-{forecast.map((w,i)=> (
-    <div>i</div>
-))}
-{/* <div id="0" class="card-box"></div>
-<div id="1" class="card-box"></div>
-<div id="2" class="card-box"></div> */}
+):(   
+ <div class="col s12" id="afterLoading">
+    <div id="overlay"></div>
+    <div id="sky-card-wrapper">
+{forecast.map((item,i)=> {
+    console.log(item)
+      let day = correctDate(item.time)
+      let dayPrefix = prefixDay(i, item.time)
+      let color = dayPrefix === 'Today'? '#fbddd5' : 'white'
+
+    return (
+    <div id={i} key={i}>
+      <div class="card indigo darken-4 white-text all-cards" id={`card-${i}`}>
+        <h5 class="center" style={{color: color, height: '5vh'}}><i>day</i></h5>
+        <img src={chooseIcon(item.icon)} alt="icon"
+        class="center" id="icons"/>
+            <div class="card-content center" style={{height: '10vh'}}>
+                {item.summary}
+            </div>
+                <div class="card-action">
+                    High: {Math.round(item.temperatureHigh)} <br/>
+                    Low: {Math.round(item.temperatureLow)}
+            </div>
+    </div>
+</div>
+    )
+})}
+
 </div>
 </div>)}
 
@@ -57,7 +106,7 @@ const Weather = (props) => {
 
 {/* <!--    right--> */}
     <div class="col s12" id="map-container">
-        <div id="map"></div>
+        <Map/>
     </div>
 
 </div>
