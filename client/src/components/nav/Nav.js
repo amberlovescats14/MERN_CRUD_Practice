@@ -10,15 +10,22 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
+import {AppBar, Typography} from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import indigo from '@material-ui/core/colors/indigo'
+import { withTheme } from '@material-ui/styles';
 
 const primary = indigo[900]
 
 const useStyles = makeStyles({
   root: {
     background: primary,
-    color: 'white'
+    color: 'white',
+    width: '100vw',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: '10px'
   },
   list: {
     width: 250
@@ -28,6 +35,10 @@ const useStyles = makeStyles({
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
 
   },
+  button: {
+    color: 'white',
+    marginRight: 'auto'
+  }
 });
 
 export default function TemporaryDrawer(props) {
@@ -91,9 +102,15 @@ export default function TemporaryDrawer(props) {
   );
   return (
     <div >
-      <Button onClick={toggleDrawer('left', true)}>
-      <DehazeIcon/>
+      <AppBar position="static" className={classes.root}>
+      <Button onClick={toggleDrawer('left', true)} style={{width: '20vw'}}>
+      <DehazeIcon style={{color: 'white'}}/>
       </Button>
+      <div style={{width: '65vw'}}>
+      <Typography variant="h4" style={{float: 'right'}}>Amber_JONES</Typography>
+      </div>
+      </AppBar>
+
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>

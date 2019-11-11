@@ -1,29 +1,29 @@
-import React, { Component } from 'react'
-import ReactMapGL from 'react-map-gl';
+import React, {useState} from 'react'
+import ReactMapGL, {Marker} from 'react-map-gl'
+import * as parkInfo from './parks.json'
 
-const TOKEN = "pk.eyJ1IjoiYW1iZXJsb3Zlc2NhdHMxNCIsImEiOiJjazIyZ3J4b2wxdThhM2RsMmRxaGZxdWhzIn0.uXec6Sexsl65YNbQ89Neng"
 
-export default class Map extends Component {
-  // style: 'mapbox://styles/amberlovescats14/ck2nvmojv05z31cnz0pq3s9h4',
-  // zoom: 10,
-  // center: [-98.4916, 29.4252]
-
-  state = {
-    viewport: {
-      width: '100%',
-      height: '400px',
-      latitude: 29.4252,
-      longitude: -98.4916,
-      zoom: 10
-    }
-  };
-
-  render() {
-    return (
-      <ReactMapGL mapboxApiAccessToken={TOKEN}
-        {...this.state.viewport}
-        onViewportChange={(viewport) => this.setState({viewport})}
-      />
-    );
-  }
+const Map = () => {
+  const [viewport, setViewport ] = useState({
+    latitude: 29.424349,
+    longitude: -98.491142,
+    zoom: 9.7,
+    width: '100%',
+    height: '400px',
+  })
+  const token = process.env.REACT_APP_MAPBOX_TOKEN
+  const styles = process.env.REACT_APP_MAPBOX_URL
+  // const url = `https://api.mapbox.com/styles/amberlovescats14/ck2orr8o90zez1clof65opmdw&access_token=${token}`
+  return (
+    <div style={{border: '2px solid yellow'}}>
+      <ReactMapGL {...viewport} mapboxApiAccessToken={token}
+      onViewportChange={(viewport)=> {setViewport(viewport)}}
+      mapStyle={styles}>
+        Markers Here
+      </ReactMapGL>
+    </div>
+  )
 }
+
+export default Map
+

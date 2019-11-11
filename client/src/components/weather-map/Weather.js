@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+// import { Helmet } from 'react-helmet'
 import Map from './Map'
 import './css/weatherMap.css'
 
@@ -26,8 +27,8 @@ const chooseIcon = (type) => {
         case 'rain': return `./css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg`;
         case 'fog':
         case "partly-cloudy-day":
-            return `./css/amcharts_weather_icons_1.0.0/animated/cloudy.svg`;
-        case 'clear-day': return `./amcharts_weather_icons_1.0.0/animated/day.svg`
+            return `./css/amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg`;
+        case 'clear-day': return `./css/amcharts_weather_icons_1.0.0/animated/day.svg`
         default: return ''
     }
 }
@@ -40,11 +41,8 @@ const Weather = (props) => {
    }, [])
 //    console.log(`IN THE COMPONENT: `, forecast.daily)
   return (
-    <div style={{width: '90vw'}} id="weather-container">
+    <div style={{width: '100vw'}} id="weather-container">
     <nav class="nav-extended  indigo darken-4">
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">AMBER_JONES</a>
-    </div>
       <div class="nav-content">
           <form>
               <div class="input-field">
@@ -63,14 +61,14 @@ const Weather = (props) => {
 <h4 id="title">Map Box & Dark Sky API</h4>
 </div>
 {/* end banner */}
-<div class="row" id="main">
+<div id="main">
 {loading ? (
-  <div class="col s12 " id="beforeLoading">
+  <div id="beforeLoading">
   <img src="https://icon-library.net/images/custom-loading-icon/custom-loading-icon-9.jpg" alt="loading"
        id="loading-image"/>
 </div>
 ):(   
- <div class="col s12" id="afterLoading">
+ <div id="afterLoading">
     <div id="overlay"></div>
     <div id="sky-card-wrapper">
 {forecast.map((item,i)=> {
@@ -105,7 +103,7 @@ const Weather = (props) => {
 {/* <!--    before loading--> */}
 
 {/* <!--    right--> */}
-    <div class="col s12" id="map-container">
+    <div id="map-container">
         <Map/>
     </div>
 
@@ -113,7 +111,7 @@ const Weather = (props) => {
 
 
 
-    </div>
+            </div>
   )
 }
 

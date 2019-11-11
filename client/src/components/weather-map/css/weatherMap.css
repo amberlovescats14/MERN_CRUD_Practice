@@ -35,7 +35,7 @@
 }
 
 #weather-container #main {
-  width: 90vw;
+  width: 100vw;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -91,6 +91,7 @@
 
 #weather-container #map-container {
   height: 100%;
+  width: 100vw;
 }
 
 #weather-container #map {
@@ -109,7 +110,7 @@
   background-position: center;
   position: relative;
   height: 100%;
-  width: 90vw;
+  width: 100vw;
   padding: 0 10% !important;
 }
 
