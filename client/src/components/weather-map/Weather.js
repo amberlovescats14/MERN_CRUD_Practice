@@ -2,6 +2,11 @@ import React, {useEffect} from 'react'
 // import { Helmet } from 'react-helmet'
 import Map from './Map'
 import './css/weatherMap.css'
+import rain from './css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg';
+import cloudy from './css/amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg'
+import sunny from './css/amcharts_weather_icons_1.0.0/animated/day.svg'
+import wind from './css/amcharts_weather_icons_1.0.0/animated/weather_sagittarius.svg'
+
 
 
 
@@ -12,6 +17,7 @@ const correctDate = (num) => {
 }
 const prefixDay = (num, num2) => {
     let time = new Date(num2 * 1000).toString()
+    console.log(`TIME`, time)
     let split = time.split(' ')
     switch (num) {
         case 0: return `Today`;
@@ -24,11 +30,12 @@ const prefixDay = (num, num2) => {
 
 const chooseIcon = (type) => {
     switch (type) {
-        case 'rain': return `./css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg`;
+        case 'rain': return rain
         case 'fog':
-        case "partly-cloudy-day":
-            return `./css/amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg`;
-        case 'clear-day': return `./css/amcharts_weather_icons_1.0.0/animated/day.svg`
+        case "partly-cloudy-day": return cloudy
+        case 'clear-day': return sunny
+        case 'wind':
+        case 'cloudy': return wind
         default: return ''
     }
 }
@@ -75,14 +82,14 @@ const Weather = (props) => {
     console.log(item)
       let day = correctDate(item.time)
       let dayPrefix = prefixDay(i, item.time)
-      let color = dayPrefix === 'Today'? '#fbddd5' : 'white'
+      let color = dayPrefix === 'Today'? '#e5e1aa' : 'white'
 
     return (
     <div id={i} key={i}>
-      <div class="card indigo darken-4 white-text all-cards" id={`card-${i}`}>
-        <h5 class="center" style={{color: color, height: '5vh'}}><i>day</i></h5>
+      <div className="card indigo darken-4 white-text all-cards" id={`card-${i}`}>
+        <h2 style={{color: `${color}`, fontSize: '3vh', marginTop: '10px'}}><i>{day}</i></h2>
         <img src={chooseIcon(item.icon)} alt="icon"
-        class="center" id="icons"/>
+        className="center" id="icons"/>
             <div class="card-content center" style={{height: '10vh'}}>
                 {item.summary}
             </div>

@@ -11,10 +11,16 @@
     $blue: #1A227E;
     $white: #F9F5F1;
 
+    $dark-grey: #354041;
+    $blue-ish: #3f5f71;
+    $green: #3c7e61;
+    $blue-green-grey: #94ac9f;
+    $yellow: #e5e1aa;
+
   #banner {
     width: 100%;
     height: 20vh;
-    background: $pink-one;
+    background: $dark-grey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,8 +28,9 @@
   
   }
   #title {
-    color: $blue;
+    color: $blue-green-grey;
     font-family: "Times New Roman", serif;
+    font-size: 8vw
   }
   #banner-h6{
     padding: 20px;
@@ -44,7 +51,7 @@
   
   #sky-card-wrapper {
     height: 400px;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,8 +65,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #8bbafe;
-    opacity: .5%;
+    background-color: #344041;
+    opacity: .1;
+
     z-index: 2;
     cursor: pointer;
   }
@@ -73,12 +81,16 @@
     box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   }
   #map-container {
-    height: 100%;
+    height: 400px;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+
   }
   #map {
     height: 100%;
-    
+    width: 100vw;
+    margin: auto;
   }
   #beforeLoading {
     background-image: url("https://icon-library.net/images/custom-loading-icon/custom-loading-icon-9.jpg");
@@ -87,18 +99,22 @@
   
   }
   #afterLoading {
-    background-image: url("./sky.jpeg");
+    background-image: url("https://images.unsplash.com/photo-1559890165-92528632b9dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1978&q=80");
     background-size: cover;
     background-position: center;
     position: relative;
     height: 100%;
     width: 100vw;
-    padding: 0 10% !important;
+    // padding: 0 10% !important;
   }
   #icons {
     margin: auto;
     height: 130px;
   }
+  #1, #2, #3, #card-1, #card-2, #card-3 {
+    width: 30px
+  }
+  
   .all-cards {
     display: flex;
     flex-direction: column;
@@ -109,7 +125,6 @@
   
   @media screen and (min-width: 768px) {
     #sky-card-wrapper {
-  
       justify-content: space-evenly;
       align-items: center;
     }
@@ -119,12 +134,16 @@
     }
     #map-container {
       padding: 0 10% !important;
-      background: $pink-one;
+      background: $dark-grey;
     }
     #map {
       -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
       -moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
       box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+      width: 60vw
+    }
+    #title {
+      font-size: 5vh
     }
   }
 }

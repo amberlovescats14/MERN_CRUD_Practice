@@ -15,7 +15,7 @@ const Map = () => {
   const styles = process.env.REACT_APP_MAPBOX_URL
   // const url = `https://api.mapbox.com/styles/amberlovescats14/ck2orr8o90zez1clof65opmdw&access_token=${token}`
   return (
-    <div style={{border: '2px solid yellow'}}>
+    <div id="map" style={{border: '2px solid yellow'}}>
       <ReactMapGL {...viewport} mapboxApiAccessToken={token}
       onViewportChange={(viewport)=> {setViewport(viewport)}}
       mapStyle={styles}>
