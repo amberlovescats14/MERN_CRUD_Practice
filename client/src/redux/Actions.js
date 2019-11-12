@@ -99,3 +99,22 @@ export const getWeather = () => async (dispatch) => {
     console.error(error.message)
   }
 }
+
+//! GET GYMS 
+export const getGyms = () => async (dispatch) => {
+  try {
+    let res = await axios.get("https://cors-anywhere.herokuapp.com/https://data.sanantonio.gov/api/3/action/datastore_search?resource_id=c21106f9-3ef5-4f3a-8604-f992b4db7512&q=planet fitness")
+    let arr = res.data.result.records
+    let bucket = []
+    arr.forEach(item => {
+      if(!bucket.includes(item.ADDRESS)) bucket.push(item.ADDRESS)
+    })
+    console.log(`BUCKET: `, bucket)
+    dispatch({
+      type: `GET_GYMS`,
+      payload: bucket
+    })
+  } catch (error) {
+    console.log(`GYM ERROR`)
+  }
+}

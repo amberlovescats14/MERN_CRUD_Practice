@@ -122,13 +122,20 @@
   width: 100vw;
 }
 
-#weather-container #icons {
+#weather-container .weather-icon {
   margin: auto;
-  height: 130px;
+  height: 100px;
+  width: 50%;
+}
+
+#weather-container .gym-icon {
+  color: yellow;
+  height: 20px;
+  background: none;
 }
 
 #weather-container #1, #weather-container #2, #weather-container #3, #weather-container #card-1, #weather-container #card-2, #weather-container #card-3 {
-  width: 30px;
+  width: 30px !important;
 }
 
 #weather-container .all-cards {

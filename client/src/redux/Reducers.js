@@ -59,10 +59,27 @@ export const getWeather = (state = weatherInitialState, action ) => {
     default: return state
   }
 }
+const gymInitialState = {
+  gymLoactions : [],
+  loading: true
+}
+//! GYMS
+export const getGyms = (state = [], action) => {
+  switch(action.type){
+    case `GET_GYMS`: 
+      return {
+        ...state,
+        gymLoactions: action.payload,
+        loading: false
+      }
+    default: return state
+  }
+}
 
 
 export default combineReducers({
   test: testing,
   commentsObject: getComments,
-  weather: getWeather
+  weather: getWeather,
+  planetFitness: getGyms
 })

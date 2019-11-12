@@ -107,12 +107,18 @@
     width: 100vw;
     // padding: 0 10% !important;
   }
-  #icons {
+  .weather-icon {
     margin: auto;
-    height: 130px;
+    height: 100px;
+    width: 50%
+  }
+  .gym-icon {
+    color: yellow;
+    height: 20px;
+    background: none
   }
   #1, #2, #3, #card-1, #card-2, #card-3 {
-    width: 30px
+    width: 30px !important;
   }
   
   .all-cards {

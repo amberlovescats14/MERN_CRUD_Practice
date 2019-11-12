@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 // import { Helmet } from 'react-helmet'
-import Map from './Map'
+import MapContainer from '../../containers/MapContainer'
 import './css/weatherMap.css'
 import rain from './css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg';
 import cloudy from './css/amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg'
@@ -17,7 +17,6 @@ const correctDate = (num) => {
 }
 const prefixDay = (num, num2) => {
     let time = new Date(num2 * 1000).toString()
-    console.log(`TIME`, time)
     let split = time.split(' ')
     switch (num) {
         case 0: return `Today`;
@@ -46,17 +45,16 @@ const Weather = (props) => {
   useEffect(()=> {
     getWeather()
    }, [])
-//    console.log(`IN THE COMPONENT: `, forecast.daily)
   return (
     <div style={{width: '100vw'}} id="weather-container">
-    <nav class="nav-extended  indigo darken-4">
-      <div class="nav-content">
+    <nav className="nav-extended  indigo darken-4">
+      <div className="nav-content">
           <form>
-              <div class="input-field">
-                  <input id="city-search" type="search" class="center-align"/>
-                  <label class="label-icon" htmlFor="city-search"><i class="material-icons"
+              <div className="input-field">
+                  <input id="city-search" type="search" className="center-align"/>
+                  <label className="label-icon" htmlFor="city-search"><i className="material-icons"
                   id="searchButton">search</i></label>
-                  <i class="material-icons">close</i>
+                  <i className="material-icons">close</i>
               </div>
           </form>
       </div>
@@ -79,26 +77,23 @@ const Weather = (props) => {
     <div id="overlay"></div>
     <div id="sky-card-wrapper">
 {forecast.map((item,i)=> {
-    console.log(item)
       let day = correctDate(item.time)
       let dayPrefix = prefixDay(i, item.time)
-      let color = dayPrefix === 'Today'? '#e5e1aa' : 'white'
+      let color = dayPrefix === 'Today'? '#21ce21' : 'white'
 
     return (
-    <div id={i} key={i}>
-      <div className="card indigo darken-4 white-text all-cards" id={`card-${i}`}>
+      <div className="card indigo darken-4 white-text all-cards" id={`card-${i}`} key={i}>
         <h2 style={{color: `${color}`, fontSize: '3vh', marginTop: '10px'}}><i>{day}</i></h2>
         <img src={chooseIcon(item.icon)} alt="icon"
-        className="center" id="icons"/>
-            <div class="card-content center" style={{height: '10vh'}}>
+        className="center weather-icon"/>
+            <div className="card-content center" style={{height: '10vh'}}>
                 {item.summary}
             </div>
-                <div class="card-action">
+                <div className="card-action">
                     High: {Math.round(item.temperatureHigh)} <br/>
                     Low: {Math.round(item.temperatureLow)}
             </div>
     </div>
-</div>
     )
 })}
 
@@ -111,7 +106,7 @@ const Weather = (props) => {
 
 {/* <!--    right--> */}
     <div id="map-container">
-        <Map/>
+        <MapContainer/>
     </div>
 
 </div>
