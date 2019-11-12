@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import ReactMapGL, {Marker, GeolocateControl} from 'react-map-gl'
+import ReactMapGL, {Marker, GeolocateControl, FlyToInterpolator} from 'react-map-gl'
 // import * as parkInfo from './parks.json'
 import icon from './css/exercise.png'
 
@@ -10,10 +10,10 @@ const iconURL = require('./css/exercise.png')
 
 
 const Map = (props) => {
-  const {planetFitness, getGyms} = props
+  const {planetFitness, getGyms, cords} = props
   const [viewport, setViewport ] = useState({
-    latitude: 29.424349,
-    longitude: -98.491142,
+    latitude: cords.latitude,
+    longitude: cords.longitude,
     zoom: 9.7,
     width: '100%',
     height: '400px',
@@ -23,7 +23,6 @@ const Map = (props) => {
   useEffect(()=> {
     getGyms()
    }, [])
-   console.log(`GYM COMPONENT: `, planetFitness)
 
 
    const [selectedMarker , setSelectedMarker] = useState(null)
@@ -32,7 +31,8 @@ const Map = (props) => {
     setSelectedMarker(t)
     console.log(setSelectedMarker)
   }
-  console.log(`viewport`, viewport)
+  console.log("RE MOUNT", viewport, )
+  console.log("CORDS MOUNT: ", cords)
   return (
     <div id="map" style={{border: '2px solid yellow'}}>
       <ReactMapGL {...viewport} mapboxApiAccessToken={token}
@@ -41,7 +41,9 @@ const Map = (props) => {
       <GeolocateControl
       positionOptions={{enableHighAccuracy: true}}
       trackUserLocation={true}
-      showUserLocation={true}/>
+      showUserLocation={true}
+      transitionDuration={1000}
+      transitionInterpolator={new FlyToInterpolator()}/>
     {test.map(t => (
       <Marker key={t}
       latitude={testCords[0]}

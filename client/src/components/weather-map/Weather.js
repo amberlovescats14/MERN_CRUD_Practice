@@ -46,33 +46,43 @@ const Weather = (props) => {
   const {loading, forecast} = weather
   const [text , setText] = useState('')
   const [cords, setCords] = useState({
-      latitude: 29.594980,
-      longitude: -98.363968
+      latitude: 29.425170,
+      longitude: -98.494610
   })
-  console.log("text: ", text)
   useEffect(()=> {
     getWeather(cords)
    }, [])
-
-   const geoCache = (e) => {
-       e.preventDefault()
-    Geocode.fromAddress(text).then(
+   //!GEO CODING
+   const getCords = (address) => {
+    Geocode.fromAddress(address).then(
         response => {
             const {lat, lng} = response.results[0].geometry.location
-            console.log("CORDS: ", lat, lng)
+            setCords({
+                latitude: lat,
+                longitude: lng
+            })
         }, 
         error => {
             console.error(error)
         }
     )
+    console.log(`CORDS`)
+    getWeather(cords)
+   }
+   //! CODING
+   const geoCache = (e) => {
+       e.preventDefault()
+       setText('')
+       getCords(text)
 }
+console.log(`THE CORDS::: `, cords)
   return (
     <div style={{width: '100vw'}} id="weather-container">
     <nav className="nav-extended  indigo darken-4">
       <div className="nav-content">
           <form>
               <div className="input-field">
-                  <input id="city-search" type="search" className="center-align" onChange={(e)=> setText(e.target.value)}/>
+                  <input id="city-search" type="search" className="center-align" onChange={(e)=> setText(e.target.value)} value={text}/>
                   <label className="label-icon" htmlFor="city-search"><i className="material-icons"
                   id="searchButton" onClick={(e)=> geoCache(e)}>search</i></label>
                   <i className="material-icons">close</i>
@@ -127,7 +137,7 @@ const Weather = (props) => {
 
 {/* <!--    right--> */}
     <div id="map-container">
-        <MapContainer/>
+        <MapContainer cords={cords}/>
     </div>
 
 </div>
