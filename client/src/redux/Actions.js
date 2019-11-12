@@ -82,13 +82,14 @@ export const deleteComment = id => async(dispatch, getState) => {
 }
 
 //! GET WEATHER
-export const getWeather = () => async (dispatch) => {
+export const getWeather = (cords) => async (dispatch) => {
   try {
-    let sanAntonio = [29.424349, -98.491142]
+    // shoud be lat /lng
+    console.log("CORDS: ", cords)
     let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/`
     let token = process.env.REACT_APP_DARK_SKY
     console.log(`TOKEN: `, token);
-    let res = await axios.get(url + `${token}/${sanAntonio[0]},${sanAntonio[1]}`)
+    let res = await axios.get(url + `${token}/${cords.latitude},${cords.longitude}`)
     console.log(`res.data: `, res.data)
     dispatch({
       type: `GET_WEATHER`,
@@ -118,3 +119,5 @@ export const getGyms = () => async (dispatch) => {
     console.log(`GYM ERROR`)
   }
 }
+
+// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY

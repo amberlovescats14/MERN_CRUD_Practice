@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getWeather : () => dispatch(getWeather())
+  getWeather : (cords) => dispatch(getWeather(cords))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Weather)

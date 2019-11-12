@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import ReactMapGL, {Marker} from 'react-map-gl'
+import ReactMapGL, {Marker, GeolocateControl} from 'react-map-gl'
 // import * as parkInfo from './parks.json'
 import icon from './css/exercise.png'
 
@@ -32,17 +32,21 @@ const Map = (props) => {
     setSelectedMarker(t)
     console.log(setSelectedMarker)
   }
-
+  console.log(`viewport`, viewport)
   return (
     <div id="map" style={{border: '2px solid yellow'}}>
       <ReactMapGL {...viewport} mapboxApiAccessToken={token}
       onViewportChange={(viewport)=> {setViewport(viewport)}}
       mapStyle={styles}>
+      <GeolocateControl
+      positionOptions={{enableHighAccuracy: true}}
+      trackUserLocation={true}
+      showUserLocation={true}/>
     {test.map(t => (
       <Marker key={t}
       latitude={testCords[0]}
       longitude={testCords[1]}>
-      <button onClick={(e, t)=> handleClick(e, t)}>
+      <button >
       <img src={icon} alt="icon" className="gym-icon"/>
       </button>
       </Marker>

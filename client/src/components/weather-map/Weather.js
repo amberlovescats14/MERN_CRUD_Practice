@@ -1,12 +1,14 @@
-import React, {useEffect} from 'react'
-// import { Helmet } from 'react-helmet'
+import React, {useEffect, useState} from 'react'
 import MapContainer from '../../containers/MapContainer'
+import Geocode from 'react-geocode'
 import './css/weatherMap.css'
 import rain from './css/amcharts_weather_icons_1.0.0/animated/rainy-1.svg';
 import cloudy from './css/amcharts_weather_icons_1.0.0/animated/cloudy-day-1.svg'
 import sunny from './css/amcharts_weather_icons_1.0.0/animated/day.svg'
 import wind from './css/amcharts_weather_icons_1.0.0/animated/weather_sagittarius.svg'
 
+let google = process.env.REACT_APP_GOOGLE_TOKEN
+Geocode.setApiKey(google)
 
 
 
@@ -42,18 +44,37 @@ const chooseIcon = (type) => {
 const Weather = (props) => {
   const { getWeather, weather} = props
   const {loading, forecast} = weather
+  const [text , setText] = useState('')
+  const [cords, setCords] = useState({
+      latitude: 29.594980,
+      longitude: -98.363968
+  })
+  console.log("text: ", text)
   useEffect(()=> {
-    getWeather()
+    getWeather(cords)
    }, [])
+
+   const geoCache = (e) => {
+       e.preventDefault()
+    Geocode.fromAddress(text).then(
+        response => {
+            const {lat, lng} = response.results[0].geometry.location
+            console.log("CORDS: ", lat, lng)
+        }, 
+        error => {
+            console.error(error)
+        }
+    )
+}
   return (
     <div style={{width: '100vw'}} id="weather-container">
     <nav className="nav-extended  indigo darken-4">
       <div className="nav-content">
           <form>
               <div className="input-field">
-                  <input id="city-search" type="search" className="center-align"/>
+                  <input id="city-search" type="search" className="center-align" onChange={(e)=> setText(e.target.value)}/>
                   <label className="label-icon" htmlFor="city-search"><i className="material-icons"
-                  id="searchButton">search</i></label>
+                  id="searchButton" onClick={(e)=> geoCache(e)}>search</i></label>
                   <i className="material-icons">close</i>
               </div>
           </form>
