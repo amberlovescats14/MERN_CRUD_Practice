@@ -75,7 +75,6 @@ const Weather = (props) => {
        setText('')
        getCords(text)
 }
-console.log(`THE CORDS::: `, cords)
   return (
     <div style={{width: '100vw'}} id="weather-container">
     <nav className="nav-extended  indigo darken-4">

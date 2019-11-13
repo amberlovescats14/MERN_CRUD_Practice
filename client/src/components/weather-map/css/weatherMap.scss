@@ -117,8 +117,8 @@
     height: 20px;
     background: none
   }
-  #1, #2, #3, #card-1, #card-2, #card-3 {
-    width: 30px !important;
+ #card-0, #card-1, #card-2 {
+    width: 30% !important;
   }
   
   .all-cards {
@@ -130,9 +130,18 @@
   }
   
   @media screen and (min-width: 768px) {
+    #afterLoading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     #sky-card-wrapper {
       justify-content: space-evenly;
       align-items: center;
+      width: 60%
+    }
+    #card-0, #card-1, #card-2 {
+      width: 30% !important
     }
   
     #loading-image {
