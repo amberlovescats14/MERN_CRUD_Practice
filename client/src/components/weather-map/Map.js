@@ -28,16 +28,13 @@ const Map = (props) => {
     })
    }, [props.cords])
 
-
+   console.log("Planet fitbess", planetFitness)
    const [selectedMarker , setSelectedMarker] = useState(null)
    const handleClick = (e,t) => {
     e.preventDefault()
     setSelectedMarker(t)
     console.log(setSelectedMarker)
   }
-  console.log("CORDS-1: ", cords )
-  console.log("CORDS-2: ", cords2)
-  console.log(`VIEWPORT: `, viewport)
   return (
     <div id="map" style={{border: '2px solid yellow'}}>
       <ReactMapGL {...viewport} mapboxApiAccessToken={token}

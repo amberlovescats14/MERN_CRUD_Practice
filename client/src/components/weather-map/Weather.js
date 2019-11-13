@@ -61,19 +61,25 @@ const Weather = (props) => {
                 latitude: lat,
                 longitude: lng
             })
+            getWeather({
+                latitude: lat,
+                longitude: lng
+            })
         }, 
         error => {
             console.error(error)
         }
     )
-    console.log(`CORDS`)
-    getWeather(cords)
+
    }
    //! CODING
-   const geoCache = (e) => {
+   const geoCache = async (e) => {
        e.preventDefault()
        setText('')
        getCords(text)
+       await getWeather(cords)
+
+
 }
   return (
     <div style={{width: '100vw'}} id="weather-container">
@@ -92,7 +98,7 @@ const Weather = (props) => {
   {/* end nav */}
   {/* banner */}
   <div id="banner">
-    <h6 id="banner-h6"><b>Weather-Map</b></h6>
+    <h6 id="banner-h6"><b>GeoCode</b></h6>
 <h4 id="title">Map Box & Dark Sky API</h4>
 </div>
 {/* end banner */}
