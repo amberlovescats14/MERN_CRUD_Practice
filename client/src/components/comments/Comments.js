@@ -4,8 +4,16 @@ import Spinner from '../spin/Spinner'
 import OneCommentContainer from '../../containers/OneCommentContainer'
 import CommentFormContainer from '../../containers/CommentFormContainer'
 import { Grid, Typography, Paper } from '@material-ui/core'
+import indigo from '@material-ui/core/colors/indigo'
+const primary = indigo[800]
 
 const styles = {
+  container: {
+    height: '190vh',
+    width: '100vw',
+    padding: '5% 10%',
+    background: primary
+  },
   list: {
     margin: ' 10px 0 10px 0'
   },
@@ -29,7 +37,7 @@ const Comments = (props) => {
   }, [getComments])
   return (
     loading ? <Spinner/> :
-    <Grid container style={{height: '90vh', width: '100vw'}}>
+    <Grid container style={styles.container}>
     <Grid item sm>
     <Paper style={styles.paper}>
     <Typography variant="h4" style={styles.header}>Leave A Comment!</Typography>
