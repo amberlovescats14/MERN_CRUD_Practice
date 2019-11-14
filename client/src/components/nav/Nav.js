@@ -107,7 +107,7 @@ export default function TemporaryDrawer(props) {
       <DehazeIcon style={{color: 'white'}}/>
       </Button>
       <div style={{width: '65vw'}}>
-      <Typography variant="h4" style={{float: 'right'}}>Amber_JONES</Typography>
+      <Typography variant="h4" style={{float: 'right'}}>REACT_App</Typography>
       </div>
       </AppBar>
 

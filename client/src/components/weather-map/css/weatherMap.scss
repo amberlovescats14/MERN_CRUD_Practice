@@ -17,10 +17,13 @@
     $blue-green-grey: #94ac9f;
     $yellow: #e5e1aa;
 
+
+    $suggested: #107179;
+    $suggested-2: #5baa47;
   #banner {
     width: 100%;
     height: 20vh;
-    background: $dark-grey;
+    background: $suggested;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,7 +116,6 @@
     width: 50%
   }
   .gym-icon {
-    color: yellow;
     height: 20px;
     background: none
   }
@@ -149,7 +151,7 @@
     }
     #map-container {
       padding: 0 10% !important;
-      background: $dark-grey;
+      background: $suggested;
     }
     #map {
       -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);

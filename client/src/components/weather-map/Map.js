@@ -36,7 +36,7 @@ const Map = (props) => {
     console.log(setSelectedMarker)
   }
   return (
-    <div id="map" style={{border: '2px solid yellow'}}>
+    <div id="map" >
       <ReactMapGL {...viewport} mapboxApiAccessToken={token}
       onViewportChange={(viewport)=> {setViewport(viewport)}}
       mapStyle={styles}>

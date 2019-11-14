@@ -8,7 +8,7 @@
 #weather-container #banner {
   width: 100%;
   height: 20vh;
-  background: #354041;
+  background: #107179;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -129,7 +129,6 @@
 }
 
 #weather-container .gym-icon {
-  color: yellow;
   height: 20px;
   background: none;
 }
@@ -184,7 +183,7 @@
   }
   #weather-container #map-container {
     padding: 0 10% !important;
-    background: #354041;
+    background: #107179;
   }
   #weather-container #map {
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

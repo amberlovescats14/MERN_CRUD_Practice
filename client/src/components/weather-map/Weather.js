@@ -117,7 +117,7 @@ const handleSubmit = (e) => {
 {forecast.map((item,i)=> {
       let day = correctDate(item.time)
       let dayPrefix = prefixDay(i, item.time)
-      let color = dayPrefix === 'Today'? '#21ce21' : 'white'
+      let color = dayPrefix === 'Today'? '#5baa47' : 'white'
 
     return (
       <div className="card indigo darken-4 white-text all-cards" id={`card-${i}`} key={i}>
