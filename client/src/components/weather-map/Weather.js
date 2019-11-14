@@ -78,14 +78,16 @@ const Weather = (props) => {
        setText('')
        getCords(text)
        await getWeather(cords)
+}
 
-
+const handleSubmit = (e) => {
+    geoCache(e)
 }
   return (
     <div style={{width: '100vw'}} id="weather-container">
     <nav className="nav-extended  indigo darken-4">
       <div className="nav-content">
-          <form>
+          <form onSubmit={(e)=> handleSubmit(e)}>
               <div className="input-field">
                   <input id="city-search" type="search" className="center-align" onChange={(e)=> setText(e.target.value)} value={text}/>
                   <label className="label-icon" htmlFor="city-search"><i className="material-icons"
