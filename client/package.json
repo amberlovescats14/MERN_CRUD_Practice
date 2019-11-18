@@ -9,6 +9,7 @@
     "axios": "^0.19.0",
     "contentful": "^7.9.1",
     "dotenv": "^8.1.0",
+    "env-cmd": "^10.0.1",
     "geocoder": "^0.2.3",
     "moment": "^2.24.0",
     "proj4": "^2.5.0",
@@ -24,9 +25,9 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "env-cmd .env.development react-scripts start",
+    "build": "env-cmd .env.production react-scripts build",
+    "test": "endv-cmd .env.development react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
